@@ -5,3 +5,8 @@ for (let i = 0; i < 256; i++) {
   square.classList.add("square");
   container.appendChild(square);
 }
+
+container.addEventListener("mouseover", (e) => {
+  if (!e.target.classList.contains("square")) return;
+  e.target.classList.add("is-colored");
+});
