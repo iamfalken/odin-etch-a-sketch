@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const resizeButton = document.querySelector(".resize-button");
 
 container.addEventListener("mouseover", (e) => {
   if (!e.target.classList.contains("square")) return;
@@ -17,3 +18,12 @@ function createGrid(size) {
 }
 
 createGrid(16);
+
+function resizeGrid() {
+  const size = Number(prompt("Squares per side (1-100):"));
+  if (!Number.isInteger(size) || size < 1 || size > 100) return;
+  container.textContent = "";
+  createGrid(size);
+}
+
+resizeButton.addEventListener("click", resizeGrid);
